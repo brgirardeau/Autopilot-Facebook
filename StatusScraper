@@ -1,0 +1,19 @@
+var aSelected = $("._42ef").find("a");
+var posts = [];
+aSelected.each(function(i, item) {
+ if(!($(item).hasClass("_39g5")||$(item).hasClass("profileLink"))){
+posts.push(item)};
+})
+var allText=[];
+posts.forEach(function(item, i){
+	$.get(item,function(data){
+	var glob = data
+    
+	var text = $.parseHTML(glob)
+	if(text[5] != null)
+	{
+		allText.push(text[5].text)
+		console.log(text[5].text)
+	}
+	})
+})
